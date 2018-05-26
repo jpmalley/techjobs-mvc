@@ -27,5 +27,19 @@
         </div>
     </div>
 
+    <div th:fragment="display-jobs">
+        <h3 th:text="${jobs.size() + ' Result(s)'}">0 Result(s)</h3>
+        <div>
+            <table th:if="${jobs} and ${jobs.size()}" class="job-listing" th:each="job : ${jobs}">
+                <tbody>
+                <tr th:each="jobProp : ${job.keySet()}">
+                    <td th:text="${jobProp.toString()}"></td>
+                    <td th:text="${job.get(jobProp)}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>
